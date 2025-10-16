@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Testing\Fluent\Concerns\Has;
 
-class Lamp extends Model
+class History extends Model
 {
     //
     use HasFactory;
-    protected $fillable = ['name',
-    'status'];
+    protected $fillable = ['lamp_id', 'status'];
 
-    public function histories()
+    public function lamp()
     {
-        return $this->hasMany(History::class);
+        return $this->belongsTo(Lamp::class);
     }
 }
